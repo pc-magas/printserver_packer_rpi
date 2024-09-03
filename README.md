@@ -1,14 +1,18 @@
-# Raspberry Pi OS Image with Packer
-In this setup, we will see how to create a custom Raspberry Pi image using Packer and its ARM builder plugin. This will let you modify the existing ARM image, provisioning and resize the filesystem partition in the Raspberry Pi as needed.
+# Raspberry pi Printserver with HP Laser 100 series support (Under development)
+This builds an image for a printserver. Upon this image is isntalled:
+* cups
+* cockpit
+* avahi
 
-## Prerequisites
+## Building the image By yourself
 
-* Ubuntu 18.04/20.04 LTS
+### Prerequisites
+
 * Git
 * Packer
 * Packer ARM Builder Plugin
 
-## Dependencies
+### Dependencies
 Before we start building, you need to install the required dependencies on your host machine(Ubuntu 18.04/20.04 LTS). Just follow the steps given below to set up the build environment:
 
 Install the required binaries on the host machine.
@@ -21,16 +25,18 @@ Download the Packer from the official website and configure it on your host mach
 Alternatively, you can install Packer using apt packer managers. Follow the instructions from official Hashicorp documentation - https://learn.hashicorp.com/tutorials/packer/get-started-install-cli?in=packer/docker-get-started.
 
 
+Also a usefull quick-start guide is https://linuxhit.com/build-a-raspberry-pi-image-packer-packer-builder-arm/
 
-## Start building ARM image
+
+### Building ARM image
 
 For building the ARM image, the Packer uses the provisioners to mount the image on your local file system and to make changes in the base ARM image.
 
 Clone the codebase from the GitHub repository and follow the instructions for building ARM images using Packer. Go to the `raspberry-pi-os-image-builder` directory and execute the Packer build command.
 
     # Clone GitHub repository
-    git clone git@github.com:source4learn/raspberry-pi-os-image-builder.git
-    cd raspberry-pi-os-image-builder
+    git clone https://github.com/pc-magas/printserver_packer_rpi.git
+    cd printserver_packer_rpi
     sudo packer build packer-raspberry-pi-os-lite.json
 
 Verify the file location and size once Packer build is completed. Archive the output image file to reduce the size on disk.
@@ -43,13 +49,3 @@ Verify the file location and size once Packer build is completed. Archive the ou
     zip -r rpi-arm-image.zip output-arm-image/image
 
 Use the Raspberry Pi Imager or any other tool to create a bootable SD card.
-
-## Summary
-
-If you encounter an error or problem in this setup, please report in the GitHub repository issues. Reach us in case you need any further assistance.
-
-Email: source4learn@gmail.com
-
-Twitter: @source4learn
-
-LinkedIn: linkedin.com/in/source4learn
