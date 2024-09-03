@@ -17,26 +17,10 @@ Install the required binaries on the host machine.
     sudo apt install git wget zip unzip build-essential kpartx qemu binfmt-support qemu-user-static e2fsprogs dosfstools
 
 
-Download the Packer from the official website and configure it on your host machine.
-
-For Ubuntu x64 based hosts
-
-    export PACKER_RELEASE="1.6.6"
-    cd /tmp/
-    wget https://releases.hashicorp.com/packer/${PACKER_RELEASE}/packer_${PACKER_RELEASE}_linux_amd64.zip
-    unzip packer_${PACKER_RELEASE}_linux_amd64.zip
-    sudo mv packer /usr/local/bin
-    packer --version
-
+Download the Packer from the official website and configure it on your host machine 
 Alternatively, you can install Packer using apt packer managers. Follow the instructions from official Hashicorp documentation - https://learn.hashicorp.com/tutorials/packer/get-started-install-cli?in=packer/docker-get-started.
 
-Download the Packer ARM builder plugin and configure the same on the host machine.
 
-    export PACKER_ARM_BUILDER_VERSION="0.1.6"
-    cd /tmp/
-    wget https://github.com/solo-io/packer-builder-arm-image/releases/download/v${PACKER_ARM_BUILDER_VERSION}/packer-builder-arm-image
-    sudo mv packer-builder-arm-image /usr/local/bin
-    sudo chmod +x /usr/local/bin/packer-builder-arm-image
 
 ## Start building ARM image
 
