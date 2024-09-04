@@ -8,3 +8,5 @@ crash.log
 
 # For built boxes
 *.box
+.packer_cache
+raspios-arm.img
